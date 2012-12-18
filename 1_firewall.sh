@@ -39,3 +39,35 @@ EOF
 chmod +x /etc/network/if-pre-up.d/iptables
 
 echo ""
+
+echo ""
+echo "*** Update SSH Port"
+echo ""
+
+# Remove if file present
+if [ -f "sshd_config" ]; then
+	echo "* Removing temp sshd_config file"
+
+	rm sshd_config
+fi
+
+touch sshd_config
+while read line; do
+
+	# Replace line containing port
+	if [[ $line =~ ^Port* ]]
+	then
+		line="Port $ssh_port"
+	fi
+
+	# Append
+	echo $line >> sshd_config
+
+done < /etc/ssh/sshd_config
+
+# Move and replate
+echo "* Updated sshd_config"
+
+mv sshd_config /etc/ssh/sshd_config
+
+echo ""
