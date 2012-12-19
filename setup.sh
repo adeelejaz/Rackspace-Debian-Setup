@@ -12,7 +12,13 @@ fi
 ./0_fix.sh &&
 ./1_firewall.sh &&
 ./2_sources.sh &&
-./3_update.sh
+./3_update.sh &&
+./4_user.sh &&
+./5_profile.sh &&
+./6_mysql.sh &&
+./7_nginx.sh &&
+./8_php.sh &&
+./9_conf.sh
 
 echo "Done!"
 echo ""
