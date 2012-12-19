@@ -4,17 +4,28 @@ echo ""
 echo "*** Add User"
 echo ""
 
-echo "* Adding User"
+# Check for user
+egrep "^$username" /etc/passwd > /dev/null
 
-pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+if [ $? -eq 0 ]; then
 
-useradd -m -p $pass $username
+	echo "* $username exists!"
 
-chown $username /home/$username
-chgrp $username /home/$username
+else
 
-echo "* Adding User to sudoers"
+	echo "* Adding User"
 
-echo "$username ALL=(ALL) ALL" >> /etc/sudoers
+	pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+
+	useradd -m -p $pass $username
+
+	chown $username /home/$username
+	chgrp $username /home/$username
+
+	echo "* Adding User to sudoers"
+
+	echo "$username ALL=(ALL) ALL" >> /etc/sudoers
+
+fi
 
 echo ""
