@@ -4,6 +4,9 @@ echo ""
 echo "*** Add User"
 echo ""
 
+# Read config file
+. ./setup.cfg
+
 # Check for user
 egrep "^$username" /etc/passwd > /dev/null
 
