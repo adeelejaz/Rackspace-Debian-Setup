@@ -22,7 +22,7 @@ cat <<EOF > /etc/iptables.rules
 
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 
--A INPUT -j REJECT
+-A INPUT -j DROP
 -A FORWARD -j REJECT
 
 COMMIT
