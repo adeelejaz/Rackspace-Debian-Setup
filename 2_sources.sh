@@ -12,11 +12,11 @@ else
 
 	cat <<EOF >> /etc/apt/sources.list
 
-deb http://packages.dotdeb.org squeeze all
-deb-src http://packages.dotdeb.org squeeze all
+deb http://packages.dotdeb.org wheezy all
+deb-src http://packages.dotdeb.org wheezy all
 
-deb http://packages.dotdeb.org squeeze-php54 all
-deb-src http://packages.dotdeb.org squeeze-php54 all
+deb http://packages.dotdeb.org wheezy-php55 all
+deb-src http://packages.dotdeb.org wheezy-php55 all
 EOF
 
 	echo "* Add Dotdeb key"
