@@ -14,7 +14,7 @@ fi
 ./3_update.sh &&
 ./4_user.sh &&
 ./5_profile.sh &&
-./6_mysql.sh &&
+./6_mariadb.sh &&
 ./7_nginx.sh &&
 ./8_php.sh &&
 ./9_conf.sh
