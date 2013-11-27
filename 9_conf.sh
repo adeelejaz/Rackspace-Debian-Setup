@@ -63,7 +63,7 @@ server {
 	}
 
 	location ~ \.php\$ {
-		fastcgi_pass unix:/var/run/php5-fpm/${domain}.socket;
+		fastcgi_pass unix:/var/run/${domain}.socket;
 		fastcgi_index index.php;
 		include /etc/nginx/fastcgi_params;
 	}
@@ -82,7 +82,7 @@ EOF
 		cat <<EOF > /etc/php5/fpm/pool.d/${domain}.conf
 [$domain]
 
-listen = /var/run/php5-fpm/${domain}.socket
+listen = /var/run/${domain}.socket
 listen.backlog = -1
 
 ; Unix user/group of processes
